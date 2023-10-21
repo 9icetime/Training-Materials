@@ -1,0 +1,270 @@
+AZ-400 Start Date :21st Oct. 2023 
+
+Day - 1 - 21st Oct. 2023 
+
+		Introduction to DevOps & Azure DevOps
+		
+		AZ-400 
+		
+		DevOps ::::
+		
+		Fundamentals :::
+		
+		
+		DevOps ????
+		
+			Dev + Ops 
+			
+			CI & CD ???
+			
+			CI CD Pipeline 
+			
+			
+		SDLC ::: Software Development Life Cycle 
+		
+			- Requirement Analysis 
+			- Design
+			- Coding/Development
+			- Testing 
+			- Implemention/Deployment
+			- Maintainence / Monitoring
+		
+		Waterfall Models ::: Linear in fashion.		--> Billing System.		9 - 12 Months
+		
+		Core-Project:
+			- Requirement Analysis 
+			- Design
+			- Coding/Development
+			- Testing 
+			- Implemention/Deployment
+			- Maintainence / Monitoring
+		
+		CR/Enhancement Project:
+			- Requirement Analysis 
+			- Design
+			- Coding/Development
+			- Testing 
+			- Implemention/Deployment
+			- Maintainence / Monitoring	
+
+
+
+			
+		Monolith Applications :
+		
+			- It is tightly coupled Application with lots of dependencies.
+			- It can have the modules
+			- Modules can be independly developed. 
+			- We cannot independly test/deploy to prod.
+		
+		E_Commerce :::
+		www.amazon.com
+		
+		Sign_up 			Module/Function --> Developer1 --> 
+		Sign-In 
+		Search 
+		Add to Cart 
+		Make Payment 
+		Place Order 
+		Trace the Order
+		
+		
+		Agile Methodologies :::::
+		
+			Module1/Iteration1:			Developer1 
+				- Requirement Analysis 
+				- Design
+				- Coding/Development
+				- Testing 
+				- Implemention/Deliver
+				- Maintainence / Monitoring			
+				
+			Module2/Iteration2 :
+				- Requirement Analysis 
+				- Design
+				- Coding/Development
+				- Testing 
+				- Implemention/Deliver
+				- Maintainence / Monitoring				
+			
+				
+				
+			Module10/Iteration10 :
+				- Requirement Analysis 
+				- Design
+				- Coding/Development
+				- Testing 
+				- Implemention/Deliver
+				- Maintainence / Monitoring		 
+			
+
+				
+			Module10/Iteration10 :
+				- Requirement Analysis 
+				- Design
+				- Coding/Development
+				- Testing 
+				- Implemention/Deliver
+				- Maintainence / Monitoring	
+
+
+			Using Agile Methodologies :::
+			
+				We can Achieve :
+						Continuos Development
+						Continuos Integration
+						Continuos Testing 
+						Continuos Delivery
+								--> It expect the a manual approval from all stake holders for production release.
+
+			Sign_up 			Module/Function --> Developer1 --> Independently code, test, To deploy to prod we need manual intervension/approval.
+			Sign-In 
+			Search 
+			Add to Cart 
+			Make Payment 
+			Place Order 
+			Trace the Order							
+						
+				We cannot Achieve Continuos Deployment
+								--> It is completely automate. This doesn't required any manual intervension/approval for production release.
+			
+			Sign_up 			Module/Function --> Developer1 --> Independently code, test, and deploy to prod without any manual intervension/approval.
+			Sign-In 
+			Search 
+			Add to Cart 
+			Make Payment 
+			Place Order 
+			Trace the Order							
+						
+					Monolith Application:
+						- It is tightly coupled Application with lots of dependencies.
+						- It can have the modules
+						- Modules can be independly developed. 
+						- We cannot independly test/deploy to prod.				
+							
+					Micro-Service Based Application:
+						- It is loosely coupled application.
+						- Here the modules are called as Micro-services
+						- Each Micro-Service has it is own src_repo, independently code, test, and release to prod.
+						
+		DevOps ::::		
+		
+			It is a software development strategy/process, which helps to promote the collaboration between the teams like Development and Operations Team to achieve Continuos Development, Continuos Integration, Continuos Testing, Continuos Delivery, Continuos Deployment and Continuos Monitoring in fully automated fashion.
+			
+			
+		Teams involved in SDLC ::::
+		
+			DevOps Team :
+				Infra-Structure Management Team ==> Provisioning/Create the Infra-Structure/Configuring the Infra-Structure.
+				Application Development Team			
+				Testing Team 
+				Release Management 
+				Production Support Team 
+				Production Monitoring Team
+				Security Team 
+				
+				
+		DevOps Stages :
+			
+				Continuos Development : 			--> IDE's (Eclipse based IDEs - Visual Studio code, Visual Studio, Pycharms)
+															SRC_Code Repository - GITHUB,...  
+				
+					Developer :::
+					
+					Without DevOps :
+						Code the Application  
+						
+						Build Code 
+						Unit Test 
+						Create Artifacts 
+						Promote the changes to higher environment for further 
+						Notify the testing to pick up the changes for testing 
+						
+					With DevOps Approach :::
+					
+							Code the Application  --> Improve the Developers' productivity
+							Commit their changes to the application source_code repository.
+						
+						Automate the below activities using DevOps Tools:
+							Build ==> Is a process of compiling the source code and create artifacts(Binaries - *.war/*.jar/*.exec/*.dll)
+							Unit Test  
+							Promote the changes to higher environment for further 
+							Notify the testing to pick up the changes for testing 							
+					
+				Continuos Integration :			Build Orchestration Tools 
+				
+						It is capability of the AD Team to contiously integrate their changes for further testing and making it ready for prod release.
+				
+				Continuos Testing :
+						It is process of Automated testing.
+				
+				
+				Continuos Delivery & Continuos Deployment :: Build Orchestration Tools , Docker, Kubernetes
+						Both Continuos Delivery and Continuos Deployment are used to refer the production releases.
+						Continuos Delivery : 
+							It expect the a manual approval from all stake holders for production release.
+						Continuos Deployment :
+							It is completely automate. This doesn't required any manual intervension/approval for production release.
+							
+				Continuos Delivery: 
+					Banking Application ::
+					
+						Online Banking / Credit Card/
+							Production Release :::
+									Production Release Window ::: 4Hrs - 6Hrs (Non-Business Hours) - Download.
+										- Fix the Issue.
+										- Revert the Changes.
+										
+										
+				Continuos Deployment:
+					Facebook 
+					Netflix 
+					Google 
+					amazon
+							
+				Continuos Monitoring:	
+						Monitor the Production Environments ::
+							
+							Infra-Structure Monitoring 
+							Application Monitoring 
+							
+				
+		
+		DevOps Tools :::
+		
+				Open_Source DevOps Tools/Self-Managed Services :
+				
+					Jenkins, gitlab-ci
+					github
+					gitlab 
+					bitbucket
+					Docker 
+					Docker Swarm 
+					Kubernetes 
+					Prometheus/Grafana
+					
+				
+				
+				Managed Services :
+					From the service Providers ::
+					
+		
+					AZ 		--> Az board, Repos, Artifacts, Test, Pipelines (Azure DevOps Services)
+					AWS 	--> AWS Code Commit,Repo,build,code-deploy
+			
+				Azure DevOps Services ::::
+				
+					--> Gain Access to Azure Cloud portal. https://portal.azure.com/
+							- Create an free Account to access Azure Portal.
+							- 	Active/Valid Credit Card 
+							-   Active/Valid Email ID and Phone Number.
+				
+					
+				
+				Create github Account https://github.com/
+			
+			
+			
+			
+			
+			
