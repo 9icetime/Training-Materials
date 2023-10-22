@@ -1,6 +1,9 @@
+
 AZ-400 Start Date :21st Oct. 2023 
 
+#########################
 Day - 1 - 21st Oct. 2023 
+##########################
 
 		Introduction to DevOps & Azure DevOps
 		
@@ -266,5 +269,176 @@ Day - 1 - 21st Oct. 2023
 			
 			
 			
+#########################
+Day - 2 - 22nd Oct. 2023 
+#########################	
+
+
+			DevOps LifeCycle ::
 			
+				Plan 			==>		AZ Boards
+				Develop 		==> 	Create Source Code, SRC_Code Repository, Build, Unit Testing ==> Promoted to Test Environments
+				Delivery		==> 	Production Release  
+				Operate			==> 	Monitoring
 			
+			1. Introduce a New Product to Customer ::: Banking 
+			
+				Product Owner --> 
+				Design & Architect the product 
+				
+			End-to-End Project Activities :::
+			
+				Start Date :
+				
+					ALM Tool => Application LifeCycle Management Tool
+								Jira
+					
+					
+				Azure Subscription -- Free 
+				
+					Team / Organization ==> Azure Organization 
+												Project1
+													Az board, Repos, Artifacts, Test, Pipelines (Azure DevOps Services)
+												Project2
+												
+												
+				DevOps Team :::
+				
+				Project Level :
+				
+				
+				
+				Version Control System :::
+						- Is used to manage the source code 
+						- Its is used to version control the changes 
+						- Tracking the changes.
+				
+				1. index.html 
+				
+					---
+					---
+					-
+					--
+					
+					-
+					--asdasfasdfsdf-
+					-
+					-
+					-
+					-
+					-
+				
+				VCS :
+						index.html_V1.0				--> myapp.war_v1.0
+						index.html_V1.2				--> myapp.war_v1.2 
+						index.html_V1.3
+						index.html_V1.4
+						index.html_V1.5
+				
+				Centralized VCS 
+				
+				Distributed VCS - github/az-repos
+				
+				Build ==> Is a process of compiling the source code and create artifacts(Binaries - *.war/*.jar/*.exec/*.dll)
+							
+				
+				
+				Artifactory Library ::	
+					Jfrog Artifactory:	
+					AZ Architects
+					
+					Tomcat 	--> official page --> list of release 
+					jdk
+					
+				Project Management --> 
+				
+					- Action Items 
+						
+						
+				Migrate my application from Jenkins to Azure Pipeline. ????
+				
+				Migrate my application from GITHUB to Azure Repos. ????
+				
+				Assessment Phase:
+					- Detailed Analysis of Exiting Github Environment 
+					- Identify & Capture all the Dependencies
+					- Identify the list of Team/Users
+					- Identify the Access level of the Team
+					- Identify the Sample Repos from GITHub to Azure Repos
+					
+					==> Produce the Assessment report.
+					
+				Migration Phase - based on Assessment Report:
+					
+					
+				Git Repository Management :::
+				
+				Git Branching Strategies ::::	- is used to avoid conflicts in master branch/ to maintain the integrity of master branch
+				
+				Version Control System :::
+						- Is used to manage the source code 
+						- Its is used to version control the changes 
+						- Tracking the changes.	
+						- Parallel Development.
+					
+				Branches are used to perform Parallel Development :::
+				
+					- Repository --
+						master/main ==> Default Branch - Considered as prod version
+						
+					Feature Branch 
+							
+1 :						
+				Repo :
+					master 			cm1,2,3,4
+						
+						feature1	cm1,2,3,4,f1cm1,f1cm2
+						feature2	cm1,2,3,4
+						feature3	cm1,2,3,4
+						
+
+2 :				
+				Repo :
+					master 			cm1,2,3,4
+						Dev_Branch 	cm1,2,3,4
+							feature1	cm1,2,3,4,f1cm1,f1cm2
+							feature2	cm1,2,3,4
+							feature3	cm1,2,3,4
+							
+3 :				
+				Repo :
+					master 			cm1,2,3,4
+					
+						Integration_Branch :						Team1
+							Dev1_Branch 	cm1,2,3,4
+								feature1	cm1,2,3,4,f1cm1,f1cm2
+								feature2	cm1,2,3,4
+								feature3	cm1,2,3,4				
+							Dev2_Branch 	cm1,2,3,4
+								feature1	cm1,2,3,4,f1cm1,f1cm2
+								feature2	cm1,2,3,4
+								feature3	cm1,2,3,4
+
+4 :				
+				Repo :
+					master 			cm1,2,3,4,Team1,Team2
+					
+						Release_Branch -- > cm1,2,3,4,Team1,Team2
+							Integration_Branch1 :						Team1
+								Dev1_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4				
+								Dev2_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4
+							Integration_Branch2 :						Team2
+								Dev1_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4				
+								Dev2_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4
