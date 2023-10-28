@@ -442,3 +442,93 @@ Day - 2 - 22nd Oct. 2023
 									feature1	cm1,2,3,4,f1cm1,f1cm2
 									feature2	cm1,2,3,4
 									feature3	cm1,2,3,4
+									
+									
+#########################
+Day - 3 - 28th Oct. 2023 
+#########################		
+
+				Azure DevOps Service :::
+				
+					Az Boards 
+					Az Repo 
+					Az Pipelines 
+					Az Tests
+					Az Artifacts 
+					
+					
+				CI/CD :::
+					
+					SCM_Repo ==> Build ==> Create Artifacts(*.war) ==> Deploy to Target Envrionments(QA/UAT/PROD)
+					
+					SCM_Repo ==> Build ==> Create Artifacts ==> Create Appln. Image ==> Published to Container Registry ==> Deploy to Kubernetes
+
+
+				Azure DevOps Service ::: 
+				
+					ALM --> Jira 
+					Az Boards ==> Agile Planning and Portfolio Management 
+					
+					Project Manager Perspective :::
+					
+					Create a New Product: 
+					Scrum Master :::::
+					
+					Launch a Website :::
+					
+						Online Training: ==> Web application.
+						Epic : My webapp deployment
+							Enquires 					==>
+								-> Front_End Design
+								-> application logic
+								-> Dbase
+							User Registration
+							Content management 
+							
+					Az Boards ==> Agile Planning and Portfolio Management 
+					
+					Team Management 
+					Work Items 
+					Duration of Work item  - Sprints ==> 2 weeks Sprint 10 Working Days
+					
+					Define the Sprint ==> 2 wks 3 wks
+						Types of Activities :::
+							Enquires 
+								-> Front_End Design		Epic,Feature,test,release,bug
+										Create Panel 
+										Test Panels
+											Create Test_Cases 
+											Create Test_Data
+								-> application logic
+								-> Dbase
+								
+					Customization of Dashboard/ boards.
+						
+					
+					
+					DL - Distribution List.
+					
+					
+					Backlog Item :::
+					
+					
+					parent workitem 
+						c1
+							sub task1
+								subtask2 
+						c2
+						c3
+					
+					
+					Parenttask 	--> Create Front_end Design 
+					childtask	--> Test the Front_end Design
+					
+					
+					Training Review ::: Feature 
+					
+						1st level 
+						2nd level 
+						3rd level 
+						
+						
+					Install Visual Studio Code. https://code.visualstudio.com/download
