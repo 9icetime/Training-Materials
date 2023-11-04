@@ -354,7 +354,7 @@ Day - 2 - 22nd Oct. 2023
 				
 					- Action Items 
 						
-						
+					  Requirement From Customer
 				Migrate my application from Jenkins to Azure Pipeline. ????
 				
 				Migrate my application from GITHUB to Azure Repos. ????
@@ -373,7 +373,7 @@ Day - 2 - 22nd Oct. 2023
 					
 				Git Repository Management :::
 				
-				Git Branching Strategies ::::	- is used to avoid conflicts in master branch/ to maintain the integrity of master branch
+				Git Branching Strategies ::::	- is used to avoid conflicts in master branch or to maintain the integrity of master branch
 				
 				Version Control System :::
 						- Is used to manage the source code 
@@ -382,10 +382,13 @@ Day - 2 - 22nd Oct. 2023
 						- Parallel Development.
 					
 				Branches are used to perform Parallel Development :::
+				 Branches are use to isolate the work
 				
 					- Repository --
 						master/main ==> Default Branch - Considered as prod version
-						
+						Sharing of codes to other users us done though master/maian Branch
+						but if you want to make changes, you should never do it on main branch but on feature branch
+
 					Feature Branch 
 							
 1 :						
@@ -396,7 +399,10 @@ Day - 2 - 22nd Oct. 2023
 						feature2	cm1,2,3,4
 						feature3	cm1,2,3,4
 						
-
+                     To help reduce conflict when merging feature branch to Master branch, it is best
+					 to go with the explaination below. Meaning create a branch by replicating the master branch
+					 in our case will called it Dev_Branch. So whenever you are done with your feature branch
+					 you can commit it to the Dev_Branch.
 2 :				
 				Repo :
 					master 			cm1,2,3,4
@@ -458,7 +464,7 @@ Day - 3 - 28th Oct. 2023
 					
 					
 				CI/CD :::
-					
+					SCM : source_code Manager
 					SCM_Repo ==> Build ==> Create Artifacts(*.war) ==> Deploy to Target Envrionments(QA/UAT/PROD)
 					
 					SCM_Repo ==> Build ==> Create Artifacts ==> Create Appln. Image ==> Published to Container Registry ==> Deploy to Kubernetes
@@ -477,7 +483,8 @@ Day - 3 - 28th Oct. 2023
 					Launch a Website :::
 					
 						Online Training: ==> Web application.
-						Epic : My webapp deployment
+						Epic : My webapp deployment  
+						Epic means the collection of more one then tasks.
 							Enquires 					==>
 								-> Front_End Design
 								-> application logic
