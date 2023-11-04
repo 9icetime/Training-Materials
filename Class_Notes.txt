@@ -541,7 +541,7 @@ Day - 3 - 28th Oct. 2023
 					Install Visual Studio Code. https://code.visualstudio.com/download
 					
 #########################
-Day - 3 - 28th Oct. 2023 
+Day - 4 - 29th Oct. 2023 
 #########################
 
 				Eclipse based IDEs ==> VS Code, 
@@ -674,3 +674,260 @@ Next :;
 
 	setup managed/self-hosted agents
 	cicd pipeline - build
+
+
+	
+#########################
+Day - 5 - 4th Nov. 2023 
+#########################
+
+		Working with Azure Pipelines :::
+		
+		CICD Pipeline :::						Build Server ! - Agents 
+		
+			SCM_Checkout 
+			Build 					--> Compile the src code 
+			Create artifacts 		--> Binaries/Execuatables - *.war/*.jar/*.exec
+			Create Docker Images 
+			Publish to container Registry 
+			Deploy to Kubernetes Cluster 
+			
+			
+		setup managed/self-hosted agents	
+		
+		Az Agent Pool ::
+				Agent1  (VM)			== java Appln. Build (jdk,maven,git) --> Azure_VM,GCP_VM,AWS_EC2_Instance/On-Premise
+				Agent1.2 		== java Appln. Build (jdk,maven,git)
+				Agent1.3 		== java Appln. Build (jdk,maven,git)
+				Agent2		==> C# (.Net Core) 
+				Agent3		==> Python 
+				Agent4
+				Agent5
+				
+		script based --> 
+		
+		Managed service -
+		
+		Self Managed Node - VM - Install required build tools.
+		
+		
+		Docker Container ???
+		
+		
+		Micro-Service :::
+		
+		
+		CI =
+		
+		CD = Container / - Create Container Images - Build / commit.
+		
+		Pre-requisites ::::
+		
+		
+		CI --> SCM_Checkout,Build,Unit Test,Create Artifacts -> Java Web Application --> Maven/Gradle/Ant -> *.war/*.jar 
+		
+		CD --> 
+		
+		Deployment  ==> It is aprocess of copying the artifacts from source Machine(Build Server-VM) to target servers(QA/UAT/PROD-VMs)
+		
+
+		Non-Prod Environment 															Prod Environment
+
+		Dev				IDE, VSCode --> 
+		Build 			*.war --> BUILD TOOLS - Maven/Gradle/Ant/GIT/JDK / 			mywebapp.war -- unit test
+							Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11
+						
+		
+		Target Environments
+			Test 
+				QA 			==> Testing tools, Web Application Server - tomcat_v8.0,OpenJdk11
+				UAT 			tomcat_v8.0,OpenJdk11
+				Pre-Prod							===>										Production Environment - tomcat_v8.0,OpenJdk11
+		
+		
+		
+		
+		Containerization :::
+					It is a process of packaging the Application artifacts along with its dependencies.
+			
+		
+			Non-Prod Environment 															Prod Environment
+
+			Dev				IDE, VSCode --> Src_code ==> 
+			
+			Build 			*.war --> BUILD TOOLS - Maven/Gradle/Ant/GIT/JDK / 			mywebapp.war -- unit test
+								Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11
+								
+					Package --> (mywebapp.war,tomcat_v8.0,OpenJdk11) --> mywebapp_pkg:v1.0 - Package_ID ==> Image.
+					Containerization ::
+						
+					Terminologies ::
+						Image 			--> Static file that composed of many layers of application Architects and its dependencies.
+											Non-Executable.
+						Container 		--> Containers are the executable units of Container Images
+											Not a permanent entity. 
+						Container Registry --> Are used to store and manage/version control the Container Images. 
+												dockerhub - Container Registry.
+												hub.docker.com 
+												
+												
+			QA - Server --> Tomcat Web server :::
+			
+				jdk 
+				Create Envi. variable for JDK 
+				Install Tomcat 
+				start tomcat 
+			
+			
+			Target Environments
+				Test 
+					QA 			==> Testing tools, Web Application Server - tomcat_v8.0,OpenJdk11
+					UAT 			tomcat_v8.0,OpenJdk11
+					Pre-Prod							===>										Production Environment - tomcat_v8.0,OpenJdk11
+			
+				
+		
+			Image in Docker hub. 
+			
+				docker pull 
+				
+				docker run 
+				
+				docker exec 
+				
+				docker build & docker commit :
+						Used to create Docker Images.
+						
+						Docker build 	--> uses Dockerfile to create image.
+						
+						Docker commit 	--> Container_Id to create New Image out of it.
+				
+				docker compose :
+						Is used run multiple containers as a single service.
+						Manifest file --> *.yaml
+						
+				Deploy a service :::
+				
+					sign_up - micro-service ==> 			Deployed in a prod server1,2,3,4,5
+						Front_End					c1,c1,c2 
+						Application_Logic 			c2,c2,c2 
+						Backend(Database)			c3,c3,c3
+				
+				
+				docker swarm :
+						Is a container Orchestration Tool 
+						Ensure high availablity of containers 
+						
+					Replicas --> 3 copies of container.
+					
+						Docker_Swarm_Master 
+								Worker_Node1
+								Worker_Node2
+								Worker_Node3
+								
+				Kubernetes :
+						Open Source - Is a container Orchestration Tool 
+						Ensure high availablity of containers 
+					
+					Kubernetes_Master
+						Kubernetes_WorkerNode1
+						Kubernetes_WorkerNode2
+						Kubernetes_WorkerNode3
+
+				Managed Kubernetes Services :
+					AKS  
+					EKS 
+					GKS 
+									
+								
+			Azure Pipelines ::::			
+
+				Build Pipeline : CI 
+				
+				Release Pipeline : CD 
+							
+			These pipelines are executed/launched in Self-Hosted Agents(Build Servers)/Azure Managed Agents(Build Servers)
+			
+			- Static Agent - Self-Hosted Agents(Build Tools) 
+			
+			- Dynamic Agent 
+			
+		
+			
+			
+			Containerization :::
+			
+				Infra-Structure  ::::
+				
+					Agents --> Build the Application:
+					
+						Az Agent Pool ::		VM Level :::
+								Agent1  (VM)			== java Appln. Build (jdk,maven,git)
+								Agent1.2 				== java Appln. Build (jdk,maven,git)
+								Agent1.3 				== java Appln. Build (jdk,maven,git)
+								Agent2					==> C# (.Net Core) 
+								Agent3					==> Python 
+								Agent4					==> NodeJS 
+								Agent5					==> Angular 
+				
+					Containerization ::: Using Containers, we can reduce the no. of VMs.
+					
+						Az Agen Pool ::
+								Agent1 (VM) 
+									Container_Engine 
+										C1				== java Appln. Build (jdk,maven,git)
+										C2              == java Appln. Build (jdk,maven,git)
+										C3              == java Appln. Build (jdk,maven,git)
+										C4              ==> C# (.Net Core) 
+										C5              ==> Python 
+										C6              ==> NodeJS 
+										C7              ==> Angular 
+					
+					
+				Main Advantage of using Containers over Virtual Machines :::
+
+						VMs are used to run the OS 
+						It is at the Hardware level virtualization 
+						It consumes lot of resources and time to run the application
+					
+						Containers are used to run the Application. NOT Operating System 
+						It is at the OS level virtualization 
+						It consumes less resources and time to run the application.
+						Once the task is completed containers will go to exit state, which will release all the associated resources.
+						
+						Container Orchestration Tools - (Kubernetes)
+						
+				Development/Deployment :::::
+			
+					It is a process of packaging the Application artifacts along with its dependencies.
+			
+		
+						Non-Prod Environment 															Prod Environment
+
+						Dev				IDE, VSCode --> Src_code ==> 
+						
+						Build 			*.war --> BUILD TOOLS - Maven/Gradle/Ant/GIT/JDK / 			mywebapp.war -- unit test
+											Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11
+											
+								Package --> (mywebapp.war,tomcat_v8.0,OpenJdk11) --> mywebapp_pkg:v1.0 - Package_ID ==> Image.
+								Containerization ::
+									
+								Terminologies ::
+									Image 			--> Static file that composed of many layers of application Architects and its dependencies.
+														Non-Executable.
+									Container 		--> Containers are the executable units of Container Images
+														Not a permanent entity. 
+									Container Registry --> Are used to store and manage/version control the Container Images. 
+															dockerhub - Container Registry.
+															hub.docker.com 				
+							
+					
+			Create a New Org. 
+			Import a src_code repo.
+			Create a build Pipeline 
+				With Azure Managed Agents
+				With Self Managed Agents
+				
+				
+			https://aka.ms/azpipelines-parallelism-request
+			
