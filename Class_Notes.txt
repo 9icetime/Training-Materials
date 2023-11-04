@@ -539,3 +539,137 @@ Day - 3 - 28th Oct. 2023
 						
 						
 					Install Visual Studio Code. https://code.visualstudio.com/download
+#########################
+Day - 3 - 28th Oct. 2023 
+#########################
+
+				Eclipse based IDEs ==> VS Code, 
+				
+				Working with VSCode to access Az Repos.
+				
+				Continuos Development :::
+				
+				
+					Developers' Workload :::
+					
+						Enhancement Project 
+						Bugfix 
+						
+						New Project
+						
+						https://LoksaiTrainingOrg@dev.azure.com/LoksaiTrainingOrg/OnlineProjectApp1/_git/OnlineProjectApp1
+						
+						
+						Workspace ???
+						
+			GIT File Workflow :::
+			
+			
+			LOCAL Machine:																			REMOTE Server:
+			
+				Working_directory 		==> Staging Area		==>		Local Repo.			==> 		Remote Repository
+				
+				s1.txt 			git add 	s1.txt 			git commit 	 s1.txt 		git push			s1.txt 	
+				
+				
+			Pull and Push ???
+			
+			in the remote environment create pull request 
+			
+			Rebase ::: 
+				Keep the current branch in sync with target and maintain the linear commit history.
+				
+				
+				
+			feature1_Branch ::
+			
+				cm1,2,3,4,5,6
+				
+			merge to target branch ::
+
+				git merge feature1_Branch 
+				
+				git cherry-pick Team1
+				
+				git squash -- Is used to combine the commits while merge to target branch.
+				
+4 :				
+				Repo :
+					master 			cm1,2,3,4,Team1
+					
+						Release_Branch -- > cm1,2,3,4,Team1,Team2
+						
+							Integration_Branch1 : cm1,2,3,4,Dev1_Changes,Dev2_Changes				Team1
+								Dev1_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4				
+								Dev2_Branch 	cm1,2,3,4
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4
+									feature3	cm1,2,3,4
+							Integration_Branch2 : cm1,2,3,4,Dev1_Changes,Dev2_Changes				Team2
+								Dev1_Branch 	cm1,2,3,4,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4,f2cm1,f2cm2
+									feature3	cm1,2,3,4,f3cm1,f3cm2				
+								Dev2_Branch 	cm1,2,3,4,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+									feature1	cm1,2,3,4,f1cm1,f1cm2
+									feature2	cm1,2,3,4,f2cm1,f2cm2
+									feature3	cm1,2,3,4,f3cm1,f3cm2
+									
+									
+				sonarqube - Analysis :::
+				
+					- Check code quality/coding standard/vul..
+					
+					- Quality Gate metrics
+					
+					
+				code 
+				
+				Container image level 
+				
+				
+				Security :::
+				
+		
+		Azure Pipeline ::
+		
+				- Build Orchestration Tool .
+				
+				jenkins 
+				aws codepipeline 
+				bamboo
+				
+				
+		CICD Pipeline :::						Build Server ! - Agents 
+		
+			SCM_Checkout 
+			Build 
+			Create artifacts 
+			Create Docker Images 
+			Publish to container Registry 
+			Deploy to Kubernetes Cluster 
+			
+		Jenkins_Master 
+			Jenkins_Slave_Node(VM)		==> Build Server  - java Appln. Build (jdk,maven,git)
+			Jenkins_Slave_Node(VM)		==> Build Server 
+			Jenkins_Slave_Node(VM)		==> Build Server 
+			Jenkins_Slave_Node(VM)		==> Build Server 
+			
+			
+			
+		Az Agent Pool ::
+				Agent1  (VM)			== java Appln. Build (jdk,maven,git)
+				Agent1.2 		== java Appln. Build (jdk,maven,git)
+				Agent1.3 		== java Appln. Build (jdk,maven,git)
+				Agent2		==> C# (.Net Core) 
+				Agent3		==> Python 
+				Agent4
+				Agent5
+				
+Next :;
+
+	setup managed/self-hosted agents
+	cicd pipeline - build
