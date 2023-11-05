@@ -923,3 +923,141 @@ Day - 5 - 4th Nov. 2023
 				
 			https://aka.ms/azpipelines-parallelism-request
 			
+#########################
+Day - 6 - 5th Nov. 2023 
+#########################
+
+
+			Azure Pipelines ::::			
+
+				Build Pipeline : CI 
+				
+				Release Pipeline : CD 
+							
+			These pipelines are executed/launched in Self-Hosted Agents(Build Servers)/Azure Managed Agents(Build Servers)
+			
+			- Static Agent - Self-Hosted Agents(Build Tools) 
+			
+			- Dynamic Agent 
+			
+			
+			
+			Azure Pipelines ::::			
+
+					
+				Release Pipeline --
+
+					Deploy the artifacts to target environment.
+						Docker/kubernetes 
+
+				Build Pipeline : CI  ==> Java maven web application 
+				
+					Build -- Compile the code, appln. pkg.(*.war/*.jar) / automate unit testing, verify the test coverage.
+						
+				Microsoft Hosted Agent --
+				
+					* Archieve the Artifacts.
+				
+				Self-Hosted Agent --
+					- Create a Virtual Machine
+					- Connect to that VM using SSH/RDP
+								Install SSH Agent in Local Machine - putty / MobaXterm  (https://mobaxterm.mobatek.net/download.html)
+							
+					- Install all the required tools in that VM --> git,jdk,maven  - docker, web application server / tomcat/nginx
+					
+							sudo apt update -y
+							sudo apt install git -y 
+							sudo apt install openjdk-11-jre -y 
+							java --version 
+							sudo apt install maven -y
+							mvn --version
+							
+					Linux Package Managers ::: 
+							apt ubuntu
+							yum rhel
+							dnf fedora
+							
+					
+					- Register the VM as a agent in Azure Agent pool
+									https://vstsagentpackage.azureedge.net/agent/3.227.2/vsts-agent-linux-x64-3.227.2.tar.gz
+									
+									https://vstsagentpackage.azureedge.net/agent/3.227.2/vsts-agent-win-x64-3.227.2.zip
+									
+									
+								SERVER URL :	https://dev.azure.com/LoksaiTrainingOrg
+									
+							- Personal Access Token (PAT) at ADO Organization level we have to create a PAT.
+									
+									
+							
+				Artifactory Libraries ==> Jfrog Artifactory
+				
+				
+				--> SCM_Repo 			==> Version control the Src_code.
+				
+				--> Artifactory Library ==> Version Control the Artifacts.
+				
+				--> DockerHub			==> Version Control the Docker Images.
+				
+					Kubernetes 			==> Used to ensure hig availablity of Application.
+											We can perform Application Upgrade/rollback without any downtime.
+				
+				
+				mywebapp:1.5 current version == up & running
+				
+				mywebapp:1.6 current version == up & running
+				
+				Copy & Publish 
+				
+				1. Build & Create artifacts in workspace dir. -- completed. 
+				
+				2. Copy the artifacts from the workspace to artifactory directory.
+				
+				3. Publish the artifacts from artifactory directory to the pipeline.
+				
+				
+				
+			
+				Deploy the artifacts supported by AZURE DevOps::::
+					
+						- Target server(VM) as application 	-  *.war (manually install all the required tools to run the application)
+																			jdk, tomcat
+						
+						- web App Server					- Managed service. 
+						
+						- ACS & AKS 
+
+For Reference :
+#azure-pipeline.yaml 					
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  name: Default
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: "default"
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/target/*.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'mvnartifacts'
+    publishLocation: 'Container'
+		
