@@ -621,31 +621,40 @@ Day - 4 - 29th Oct. 2023
 									
 									
 				sonarqube - Analysis :::
+				 You will find SonarQube in Repos known as Advance Security
+				Befor you process a data, make sure to do complete code Review
 				
+				Sonarqube help to check for
 					- Check code quality/coding standard/vul..
 					
 					- Quality Gate metrics
 					
-					
-				code 
-				
+				Scanning of image can be done at the 
+
+				code Level 
+				    &
 				Container image level 
 				
 				
 				Security :::
-				
+			We have static code analizer 
+			    &
+			Dynamic code analizer	
+			It is require to integrate this two set analizers as part of your SSG process
 		
 		Azure Pipeline ::
 		
-				- Build Orchestration Tool .
+				- Build Orchestration Tool .  It simply means that your Azure pipeline will is not going to build anything,
+				                              It will just going to integrate the build and deployment tools and automate the process.
 				
+				Apart from Azure pipeline, we have things like
 				jenkins 
 				aws codepipeline 
 				bamboo
 				
 				
 		CICD Pipeline :::						Build Server ! - Agents 
-		
+		     SCM Means Source Code
 			SCM_Checkout 
 			Build 
 			Create artifacts 
@@ -654,6 +663,7 @@ Day - 4 - 29th Oct. 2023
 			Deploy to Kubernetes Cluster 
 			
 		Jenkins_Master 
+		  Repical of Agents
 			Jenkins_Slave_Node(VM)		==> Build Server  - java Appln. Build (jdk,maven,git)
 			Jenkins_Slave_Node(VM)		==> Build Server 
 			Jenkins_Slave_Node(VM)		==> Build Server 
@@ -732,14 +742,33 @@ Day - 5 - 4th Nov. 2023
 		
 
 		Non-Prod Environment 															Prod Environment
-
+          The Developer as develop the code using something like IDE or VSCode
 		Dev				IDE, VSCode --> 
+
+		The next step is me devops engineer. I start buildoing
+
 		Build 			*.war --> BUILD TOOLS - Maven/Gradle/Ant/GIT/JDK / 			mywebapp.war -- unit test
-							Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11
-						
+		               
+					   For Docker base application you will be installing .Net code, .Net Framework and all the .Net tools will be install their.
+					   If it a python base application you will be installing python tools.
+					   Or if it a note J or Anglela 
+					   Depends on what type of Application the conresponding base appplication has to be install.
+							
+							Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11 
+							  (tomcat_v8.0,OpenJdk11 This tools are examples of tools use in testing application)
+
+				The above application are consinder as a web server which to run you applications		
+		        So your artifact is tested using the following Web Application Server --> Software - Tomcat/Nginx/Apache
+
+             
+			Note: It is the Artifact that you are taking to Terget Environment for further Testing.
+		
 		
 		Target Environments
 			Test 
+			In the testing environment, the below tools are needed. Whatever you use in testing in the non-production environment that is what you should in the production environment.
+			Note: Whatever you tools you use in running your application in the Non-Prod Environment that is what you shoud be bringing to the Target environment
+
 				QA 			==> Testing tools, Web Application Server - tomcat_v8.0,OpenJdk11
 				UAT 			tomcat_v8.0,OpenJdk11
 				Pre-Prod							===>										Production Environment - tomcat_v8.0,OpenJdk11
@@ -759,18 +788,19 @@ Day - 5 - 4th Nov. 2023
 								Web Application Server --> Software - Tomcat/Nginx/Apache --> tomcat_v8.0,OpenJdk11
 								
 					Package --> (mywebapp.war,tomcat_v8.0,OpenJdk11) --> mywebapp_pkg:v1.0 - Package_ID ==> Image.
+					
 					Containerization ::
-						
-					Terminologies ::
+						Terminologies ::
+
 						Image 			--> Static file that composed of many layers of application Architects and its dependencies.
 											Non-Executable.
 						Container 		--> Containers are the executable units of Container Images
-											Not a permanent entity. 
+											Not a permanent entity. Meaning at any point of time container can go to no executing stage or get crash.
 						Container Registry --> Are used to store and manage/version control the Container Images. 
 												dockerhub - Container Registry.
 												hub.docker.com 
 												
-												
+			If you want to set up a tomcat server you follow the below steps.									
 			QA - Server --> Tomcat Web server :::
 			
 				jdk 
@@ -804,10 +834,10 @@ Day - 5 - 4th Nov. 2023
 				
 				docker compose :
 						Is used run multiple containers as a single service.
-						Manifest file --> *.yaml
+						Manifest file --> *.yaml  : This file helps in defining the containers and the service.
 						
 				Deploy a service :::
-				
+				     This is a three tier application Front_End, Application_Logic, Backend(Database).
 					sign_up - micro-service ==> 			Deployed in a prod server1,2,3,4,5
 						Front_End					c1,c1,c2 
 						Application_Logic 			c2,c2,c2 
@@ -848,9 +878,9 @@ Day - 5 - 4th Nov. 2023
 							
 			These pipelines are executed/launched in Self-Hosted Agents(Build Servers)/Azure Managed Agents(Build Servers)
 			
-			- Static Agent - Self-Hosted Agents(Build Tools) 
+			- Static Agent - Self-Hosted Agents(You have to Build Tools yourself) This is run by you. You create the VM's
 			
-			- Dynamic Agent 
+			- Dynamic Agent - Agents are dynamic created as soon as you create the build and the agent will be stall with all the require tools and it will pick up your source code for build and artifact. 
 			
 		
 			
@@ -861,7 +891,7 @@ Day - 5 - 4th Nov. 2023
 				
 					Agents --> Build the Application:
 					
-						Az Agent Pool ::		VM Level :::
+						Az Agent Pool ::		         VM Level :::
 								Agent1  (VM)			== java Appln. Build (jdk,maven,git)
 								Agent1.2 				== java Appln. Build (jdk,maven,git)
 								Agent1.3 				== java Appln. Build (jdk,maven,git)
@@ -886,16 +916,18 @@ Day - 5 - 4th Nov. 2023
 					
 				Main Advantage of using Containers over Virtual Machines :::
 
+                                 Virtual Machines
 						VMs are used to run the OS 
 						It is at the Hardware level virtualization 
 						It consumes lot of resources and time to run the application
 					
+					                 Containers
 						Containers are used to run the Application. NOT Operating System 
 						It is at the OS level virtualization 
 						It consumes less resources and time to run the application.
 						Once the task is completed containers will go to exit state, which will release all the associated resources.
 						
-						Container Orchestration Tools - (Kubernetes)
+						Container Orchestration Tools - (Kubernetes) This is use to manage the containers.
 						
 				Development/Deployment :::::
 			
@@ -921,7 +953,18 @@ Day - 5 - 4th Nov. 2023
 															dockerhub - Container Registry.
 															hub.docker.com 				
 							
-					
+            Pom.xml file is use to defind your artifact. 
+			what is the name of your artifact that you create
+			what type of packaging, is it war file and what are the dependencies we need to build this application and what are the plugin's we need to build this application
+
+
+
+         Note: It is the responsibility of the developer to maintain Dockerfile in the source code repository
+
+         Note: Package is not a container. It is just a war file.
+
+		 In Azure in order to perform pipeline, you need a pipeline script.
+
 			Create a New Org. 
 			Import a src_code repo.
 			Create a build Pipeline 
@@ -930,4 +973,10 @@ Day - 5 - 4th Nov. 2023
 				
 				
 			https://aka.ms/azpipelines-parallelism-request
+
+			https://dev.azure.com/OsasPipelinedemo-org1/   (Organization name)
 			
+Devops team are just a like a facilitators
+Our job as a Devops team is to help developers to onboard the application.
+Once it is onboarded then after it will be self help activities. whatever they want they have everything in their repository.
+ They can start using it.
